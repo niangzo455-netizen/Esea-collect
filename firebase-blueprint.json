@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Utilisateur ESEA Collect (Superviseur ou Enquêteur Étudiant)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "UID Firebase Auth" },
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["supervisor", "student", "admin"] },
+        "department": { "type": "string" },
+        "matricule": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "lastLoginAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "email", "name", "role"]
+    },
+    "SurveyProject": {
+      "title": "Survey Project",
+      "description": "Projet d'enquête méthodologique ESEA",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "code": { "type": "string" },
+        "description": { "type": "string" },
+        "department": { "type": "string" },
+        "supervisorId": { "type": "string" },
+        "supervisorName": { "type": "string" },
+        "supervisorEmail": { "type": "string" },
+        "status": { "type": "string", "enum": ["draft", "active", "completed", "archived"] },
+        "targetSubmissions": { "type": "number" },
+        "currentSubmissions": { "type": "number" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "groups": { "type": "array" },
+        "invitationCodes": { "type": "array" },
+        "questions": { "type": "array" },
+        "questionnaireVersion": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "code", "supervisorId", "status"]
+    },
+    "Submission": {
+      "title": "Survey Submission",
+      "description": "Fiche d'enquête soumise par un collecteur terrain",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "projectId": { "type": "string" },
+        "projectTitle": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "groupId": { "type": "string" },
+        "groupName": { "type": "string" },
+        "answers": { "type": "object" },
+        "submittedAt": { "type": "string" },
+        "syncStatus": { "type": "string", "enum": ["synced", "pending", "syncing", "failed"] },
+        "qualityStatus": { "type": "string", "enum": ["valid", "warning", "incomplete", "error"] },
+        "qualityNotes": { "type": "array" },
+        "gps": { "type": "object" },
+        "gpsStatus": { "type": "string" },
+        "durationSeconds": { "type": "number" }
+      },
+      "required": ["id", "projectId", "studentId", "answers", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "Collection des profils utilisateurs"
+    },
+    "projects": {
+      "schema": "SurveyProject",
+      "description": "Collection des projets d'enquêtes"
+    },
+    "submissions": {
+      "schema": "Submission",
+      "description": "Collection des soumissions terrain"
+    }
+  }
+}

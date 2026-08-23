@@ -1,0 +1,12 @@
+{
+  "projectId": "esea-collect-app",
+  "appId": "1:540004775632:web:ac0f6656be1265bf4d10d5",
+  "apiKey": "AIzaSyAcFf3KEfRDwFz_uZ7YceVXmaxwJHdSnlQ",
+  "authDomain": "esea-collect-app.firebaseapp.com",
+  "firestoreDatabaseId": "(default)",
+  "storageBucket": "esea-collect-app.firebasestorage.app",
+  "messagingSenderId": "540004775632",
+  "measurementId": "G-S0J7D6HJCW",
+  "oAuthClientId": "",
+  "recaptchaSiteKey": ""
+}

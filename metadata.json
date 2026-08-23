@@ -1,0 +1,11 @@
+{
+  "name": "ESEA Collect",
+  "description": "Plateforme institutionnelle de collecte et de gestion d'enquêtes de terrain pour l'École Supérieure d'Économie Appliquée (ESEA) de l'Université Cheikh Anta Diop (UCAD) de Dakar.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
